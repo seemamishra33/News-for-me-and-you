@@ -6,8 +6,14 @@
 <body>
 <div ng-controller = "postsController">
 	<div style="background-color: skyblue; padding-top:10px" class="navbar navbar-dark bg-primary">
-		<b style="margin-left:20px; margin-right:850px; font-size:20px">Hello {{current_user[0].name}}</b><button class="btn btn-info" style="margin-left:70px; margin-bottom:10px"><a style="color:white"href="#/dashboard/{{current_user[0]._id}}">Dashboard</a></button> <button class="btn btn-info" style=" margin-bottom:10px"><a style="margin-bottom:15px; color:white" href="#/">Logout</a></button>
+		<b style="margin-left:20px; margin-right:850px; font-size:20px">Hello {{current_user[0].name}}</b><button class="btn btn-info" style="margin-left:430px; margin-bottom:10px"><a style="color:white"href="#/dashboard/{{current_user[0]._id}}">Dashboard</a></button> <button class="btn btn-info" style=" margin-bottom:10px"><a style="margin-bottom:15px; color:white" href="#/">Logout</a></button>
 	</div>
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
 	<div class="col-md-10 col-md-offset-1" class="active" >
 
 			<div ng-controller = "APIController">
@@ -16,32 +22,35 @@
 				<p>{{article[0].description.abstract}}</p>
 				<p style="margin-left:850px; font-style:italic">{{article[0].description.pub_date |date:'MMMM d, y'}}</p>
 
-				<p style="margin-top:10px"><button id = "btn1" ng-click="toggle()" class="btn btn-info">Expand the Article</button>
+				<p style="margin-top:10px"><button id = "btn1" ng-click="toggle()" class="btn btn-info">Show more...</button>
                 <div ng-show="myVar1" id="iframe" >
-                    <iframe style="width:1030px; height:400px" ng-src="{{article[0].description.url | trustAsResourceUrl}}"></iframe>
+                    <iframe style="width:1280px; height:400px" ng-src="{{article[0].description.url | trustAsResourceUrl}}"></iframe>
                 </div>
 
 
 				<div class="row">
 
-					<div  style="margin-right:0px; margin-left:0px" ng-controller = "postsController">
-						<h4 style="margin-top:10px; font-style:italic"><i class="fa fa-comments" aria-hidden="true"></i> Top Comments:</h4>
-						<div class="comments">
-							<div class="content" ng-repeat = "post in posts">
-								<p style="font-style:italic; display:inline-block; color: skyblue">{{post._user.name}}</p>
-								<p style="width:800px; display:inline-block font-style:italic">{{post.description}}</p>
+					<div  style="" ng-controller = "postsController">
+					<div style="">
+							<!-- <div style="width:300px; margin-right:0px; margin-left:0px"> -->
+								<h4 style='font-style:italic'><i style="font-size:25px" class="fa fa-commenting"></i> Comment on this article</h4>
+								<textarea rows="4" style="width:1300px; border-radius:15px" ng-model="new_post.description" style="width:400px;"></textarea><br>
+								<input style="margin-top:13px; margin-left:1200px" type="submit" value="Comment" class="btn btn-info" ng-click="addPost()">
+							<!-- </div> -->
+						</div>
+						<div>
+							<h4 style="margin-top:10px; font-style:italic"><i class="fa fa-comments" aria-hidden="true"></i> Top Comments:</h4>
+							<div class="comments">
+								<div class="content" ng-repeat = "post in posts">
+									<p style="font-style:italic; display:inline-block; color: skyblue">{{post._user.name}}</p>
+									<p style="width:800px; display:inline-block font-style:italic">{{post.description}}</p>
 
+								</div>
+
+							</div>
 						</div>
 
-					</div>
-
-					<div class="col-sm-4 col-sm-offset-3">
-						<!-- <div style="width:300px; margin-right:0px; margin-left:0px"> -->
-							<h4 style='font-style:italic'><i style="font-size:25px" class="fa fa-commenting"></i> Comment on this article</h4>
-							<textarea rows="4" style="width:1000px; border-radius:15px" ng-model="new_post.description" style="width:400px;"></textarea><br>
-							<input style="margin-top:13px; margin-left:910px" type="submit" value="Comment" class="btn btn-info" ng-click="addPost()">
-						<!-- </div> -->
-					</div>
+						
 				 </div>
 			</div>
 <!-- <div style="margin-top:40px">
@@ -64,4 +73,6 @@
 
 
 	</div>
-</div>
+</div><br><br>
+
+</body>

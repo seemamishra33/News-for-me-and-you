@@ -5,25 +5,28 @@
 
 <div ng-controller = "postsController">
 	<div style="background-color: skyblue; padding-top:10px" class="navbar navbar-dark bg-primary">
-		<b style="margin-left:20px; margin-right:1000px">Hello {{current_user[0].name}}</b><a href="/dashboard/{{}}">Dashboard</a> | <a href="">Logout</a>
+		<b style="margin-left:20px; margin-right:850px; font-size:20px">Hello {{current_user[0].name}}</b><button class="btn btn-info" style="margin-left:430px; margin-bottom:10px"><a style="color:white"href="#/dashboard/{{current_user[0]._id}}">Dashboard</a></button> <button class="btn btn-info" style=" margin-bottom:10px"><a style="margin-bottom:15px; color:white" href="#/">Logout</a></button>
 	</div>
 </div>
 
-<div ng-controller = "APIController">
-	<h4 style="margin-left:20px"><i class="fa fa-newspaper-o"></i> {{clicked_user[0].name}}'s articles</h4><br><br>
-	<h5>Yet to read</h5>
+<div style="margin-left:300px" ng-controller = "APIController">
+	<h4 style="margin-left:20px; font-size:30px"><i class="fa fa-newspaper-o"></i> {{clicked_user[0].name}}'s articles</h4><br><br>
+	<h5>Unread</h5>
 	<div style="" ng-repeat= "article in articles" class="col-md-11 col-md-offset-1" class="active">
-		<div ng-if = "!article.done">
- 			<input ng-bind='article.description.pub_date | date: "longDate"' type="checkbox" ng-model ="article.done" ng-change= "changeStatus(article._id, current_current_user[0]._id)"><b><a href="#/article/{{article._id}}/{{current_current_user[0]._id}}">{{article.description.headline}} </a></b>
-			<br>
-			<b style="margin-left:2000px; margin-top:25px">{{article.description.pub_date | date:'MMMM d, y'}}</b><br>
+		<div  style='font-size:23px' ng-if = "!article.done">
+ 			<input ng-bind='article.description.pub_date | date: "longDate"' style="" type="checkbox" ng-model ="article.done" ng-change= "changeStatus(article._id, current_current_user[0]._id)"><b><a style="display:inline-block;" href="#/article/{{article._id}}/{{current_current_user[0]._id}}">{{article.description.headline}} </a></b>
+
+			<b style="">({{article.description.pub_date | date:'MMMM d, y'}})</b><br>
  		</div>
  	</div>
- 	<h5>Read articles</h5>
- 	<div style="" ng-repeat= "article in articles" class="col-md-11 col-md-offset-1" class="active">
- 		<div ng-if = "article.done">
- 			<input ng-bind='article.description.pub_date | date: "longDate"' type="checkbox"   ng-checked = "article.done" > <b><a href="#/article/{{article._id}}/{{current_current_user[0]._id}}">{{article.description.headline}}</a></b><br>
- 			<b style="margin-left:200px; margin-top:25px">{{article.description.pub_date | date:'MMMM d, y'}}</b><br>
- 		</div>
+
+ 	<div style="margin-top:200px; font-size:23px">
+	 	<h5>Read</h5>
+	 	<div style="" ng-repeat= "article in articles" class="col-md-11 col-md-offset-1" class="active">
+	 		<div ng-if = "article.done">
+	 			<input ng-bind='article.description.pub_date | date: "longDate"' type="checkbox"   ng-checked = "article.done" > <b><a style="display:inline-block;" href="#/article/{{article._id}}/{{current_current_user[0]._id}}">{{article.description.headline}}</a></b>
+	 			<b style="">({{article.description.pub_date | date:'MMMM d, y'}})</b><br>
+	 		</div>
+		</div>
 	</div>
 </div>

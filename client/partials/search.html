@@ -6,7 +6,7 @@
 <div ng-controller= "APIController">
 	<nav style="background-color:skyblue" class="navbar navbar-inverse navbar-default navbar-fixed-top navebar-right">
 		<form style="display:inline-block">
-			<input style="margin-left:1150px; margin-top:10px" type="submit" ng-click="go_to_dashboard()" value="Dashboard" class="btn btn-info">
+			<input style="margin-left:1450px; margin-top:10px" type="submit" ng-click="go_to_dashboard()" value="Dashboard" class="btn btn-info">
 		</form>
 	</nav>
 	<div>
@@ -33,10 +33,12 @@
 	            <input type="submit" class="btn btn-info" value= "News search" ng-click = "enterQuery2()">
 	        </form>
 	    </div>
-		<button style="margin-left:200px" id = "btn" class="btn btn-info" ng-click="toggle1()">Dive in Time</button>
-		<form>
+	    	<form style="margin-left:110px">
 			<input type="submit" style="display:inline-block" ng-click="go_to_dashboard()" class="btn btn-info" value="Done Adding">
+			<button style="display:inline-block" id = "btn" class="btn btn-info" ng-click="toggle1()">Dive in Time</button>
+
 		</form>
+		
 	</div>
 
 <!-- 
@@ -77,10 +79,5 @@
 	</div>
 
 </div>
-<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
+
 </body>

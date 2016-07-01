@@ -4,7 +4,7 @@
   data-width="450"
   data-show-faces="true">
 </div> -->
-<!-- <script>
+<script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -73,15 +73,8 @@
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
-</script> -->
+
+</script>
 <!--
   Below we include the Login Button social plugin. This button uses
   the JavaScript SDK to present a graphical Login button that triggers
@@ -106,7 +99,7 @@
   <h1 style="font-size:60px; font-style:italic color:skyblue"><b><i>News-A-Day</i></b></h1>
 </div>
 	<div ng-controller="usersController" id="content" class="col-md-10 col-md-offset-4" class="active">
-		<div style="margin-left:-60px">
+		<div style="margin-left:-140px">
 			<h3>Hello!</h3>
 			<h4>Enter your name to join</h4>
 			<form>
