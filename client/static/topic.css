@@ -1,0 +1,18 @@
+
+body{
+   background-color: #F5FFFA ;
+}
+div.comments{
+   width:1000px;
+   height:150px;
+   border-left: 6px solid skyblue;
+   background-color: #F5FFFA ;
+   overflow: scroll;
+   position:fixed
+
+}
+
+.content{
+   padding-left:30px;
+   padding-top:10px;
+}

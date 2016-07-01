@@ -1,0 +1,86 @@
+<head>
+	<link rel="stylesheet" type="text/css" href="../static/search.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body>
+<div ng-controller= "APIController">
+	<nav style="background-color:skyblue" class="navbar navbar-inverse navbar-default navbar-fixed-top navebar-right">
+		<form style="display:inline-block">
+			<input style="margin-left:1150px; margin-top:10px" type="submit" ng-click="go_to_dashboard()" value="Dashboard" class="btn btn-info">
+		</form>
+	</nav>
+	<div>
+		<br>
+		<br>
+		<br>
+	<h3 style="margin-left:20px">Hello, {{current_user[0].name}}! </h3>
+	<h4 style="margin-left:20px">What articles would you like to search today?</h4>
+
+
+	<div style="margin-left:20px">
+		<div id="normal_search" ng-hide="myVar">
+	        <form style="">
+	            <input type="text" ng-model="api_search.query" placeholder="search...">
+	            <input type="submit" class="btn btn-info" value= "Latest News Search" ng-click = "enterQuery()">
+	        </form>
+		</div>
+
+	    <div ng-show="myVar" id="dive_in_time" >
+	        <form style="">
+	            <input type="text" ng-model="api_search2.query" placeholder="Search">
+	            <input type="number" ng-model="api_search2.time" placeholder="Dive in time">
+
+	            <input type="submit" class="btn btn-info" value= "News search" ng-click = "enterQuery2()">
+	        </form>
+	    </div>
+		<button style="margin-left:200px" id = "btn" class="btn btn-info" ng-click="toggle1()">Dive in Time</button>
+		<form>
+			<input type="submit" style="display:inline-block" ng-click="go_to_dashboard()" class="btn btn-info" value="Done Adding">
+		</form>
+	</div>
+
+<!-- 
+	<div id="normal_search">
+		<form style="display:inline-block">
+			<i style="margin-left:20px;" class="fa fa-search"></i> <input type="text" style="height:33px;" placeholder="Search Article" ng-model="api_search.query">
+			<input type="submit" class="btn btn-info" value= "Search" ng-click = "enterQuery()">
+		</form>
+	</div>
+	<div id="dive_in_time">
+		<form>
+			<i style="margin-left:20px;" class="fa fa-search"></i> <input type="text" ng-model="api_search2.query" style="height:33px;" placeholder="Search Article">
+			<input type="number" ng-model="api_search.time" style="height:33px;" placeholder="Dive in time">
+
+			<input type="submit" style="display:inline-block" class="btn btn-info" value= "Search" ng-click = "enterQuery2()">
+			<form>
+				<input type="submit" style="display:inline-block" ng-click="go_to_dashboard()" class="btn btn-info" value="Done Adding">
+			</form>
+		</form>
+
+	</div> -->
+
+
+	<div id="content"  ng-repeat= "doc in docs | limitTo:3">
+		<form>
+			<div ng-hide="doc.showfull">
+				<h4 style="color:#0C090A; font-style:italic" ng-model="doc.value" ng-value = "doc.headline.main" readonly>{{doc.headline.main}}</h4>
+				<p style="color:#0C090A" ng-model = "doc.snippet" ng-value="doc.snippet">{{doc.snippet}}</p>
+
+				<div style="margin-left:750px">
+					<b id="friend">Recommend to friends:</b> <select class="form-control btn btn-default dropdown-toggle" style="width:100px" ng-model = "doc.tagged_user">
+						<option ng-repeat="user in users">{{user.name}}</option>
+					</select>
+					<input type= "submit" id="article" ng-click="enterArticle(doc)" ng-model="mydiv" class="btn btn-info" value= "Add Article">
+				</div>
+			</div>
+		</form>
+	</div>
+
+</div>
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+</body>

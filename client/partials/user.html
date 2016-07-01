@@ -1,0 +1,29 @@
+<head>
+	<link rel="stylesheet" type="text/css" href="../static/user.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<div ng-controller = "postsController">
+	<div style="background-color: skyblue; padding-top:10px" class="navbar navbar-dark bg-primary">
+		<b style="margin-left:20px; margin-right:1000px">Hello {{current_user[0].name}}</b><a href="/dashboard/{{}}">Dashboard</a> | <a href="">Logout</a>
+	</div>
+</div>
+
+<div ng-controller = "APIController">
+	<h4 style="margin-left:20px"><i class="fa fa-newspaper-o"></i> {{clicked_user[0].name}}'s articles</h4><br><br>
+	<h5>Yet to read</h5>
+	<div style="" ng-repeat= "article in articles" class="col-md-11 col-md-offset-1" class="active">
+		<div ng-if = "!article.done">
+ 			<input ng-bind='article.description.pub_date | date: "longDate"' type="checkbox" ng-model ="article.done" ng-change= "changeStatus(article._id, current_current_user[0]._id)"><b><a href="#/article/{{article._id}}/{{current_current_user[0]._id}}">{{article.description.headline}} </a></b>
+			<br>
+			<b style="margin-left:2000px; margin-top:25px">{{article.description.pub_date | date:'MMMM d, y'}}</b><br>
+ 		</div>
+ 	</div>
+ 	<h5>Read articles</h5>
+ 	<div style="" ng-repeat= "article in articles" class="col-md-11 col-md-offset-1" class="active">
+ 		<div ng-if = "article.done">
+ 			<input ng-bind='article.description.pub_date | date: "longDate"' type="checkbox"   ng-checked = "article.done" > <b><a href="#/article/{{article._id}}/{{current_current_user[0]._id}}">{{article.description.headline}}</a></b><br>
+ 			<b style="margin-left:200px; margin-top:25px">{{article.description.pub_date | date:'MMMM d, y'}}</b><br>
+ 		</div>
+	</div>
+</div>

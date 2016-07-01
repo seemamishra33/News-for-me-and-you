@@ -1,0 +1,40 @@
+<head>
+	<link rel="stylesheet" type="text/css" href="../static/dashboard.css">
+</head>
+<body>
+	<div  ng-controller = "APIController">
+		<div style="background-color: skyblue; padding-top:10px" class="navbar navbar-dark bg-primary">
+			<b style="margin-left:20px; margin-right:1000px; font-size:20px; display:inline-block">Hello {{current_user[0].name}}</b><button class="btn btn-info" style="margin-left:50px; margin-bottom:10px"><a style="margin-bottom:15px; color:white" href="#/">Logout</a></button>
+		</div>
+	</div>
+
+	<div ng-controller = "APIController">
+		<div id="table1" class="col-md-10 col-md-offset-1" class="active">
+			<table class="table table-bordered">
+				<thead class="">
+					<tr style="font-family:Century Gothic, CenturyGothic, Geneva, AppleGothic, sans-serif;" class="info">
+						<td style="">Name</td>
+						<td>Recently Added Article</td>
+						<td>No. of articles</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr style="font-family:Century Gothic, CenturyGothic, Geneva, AppleGothic, sans-serif;" ng-repeat = "user in users">
+						<td ><a href = "#/user/{{user._id}}/{{current_user[0]._id}}">{{user.name}}</a></td>
+						<td ><a href = "#/article/{{user._article[user._article.length-1]._id}}/{{current_user[0]._id}}"> {{user._article[user._article.length-1].description.headline}}</a></td>
+						<td>{{user._article.length}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- <div style="text-align:center">
+			<h1>Recently Added Articles</h1>
+			<p ng-repeat = "user in users"><br>
+				<a style="margin-left:-250px" href = "#/user/{{user._id}}/{{current_user[0]._id}}">{{user.name}}</a><br>
+				<a style="margin-left:15px" href = "#/article/{{user._article[user._article.length-1]._id}}/{{current_user[0]._id}}"> {{user._article[user._article.length-1].description.headline}}</a><br>
+				<b style="margin-left:300px">No. of articles: {{user._article.length}}</b>
+				<hr>
+			</p>
+		</div> -->
+	</div>
+</body>
