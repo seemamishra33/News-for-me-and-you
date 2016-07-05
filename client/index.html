@@ -1,6 +1,6 @@
 <html ng-app="msg_dashboard_app">
 <head>
-  <title>message board</title>
+  <title>News for me and you</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <!-- require angular -->
@@ -15,7 +15,7 @@
   </script>
   <script type='text/javascript' src="./js/config/routes.js">  </script>
 
- 
+
 
 
   <script type='text/javascript' src="./js/model/APIFactory.js">  </script>
@@ -56,19 +56,19 @@
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
     });
-    
+
   }
 
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '1073335866080406',
-    cookie     : true,  // enable cookies to allow the server to access 
+    cookie     : true,  // enable cookies to allow the server to access
                         // the session
     xfbml      : true,  // parse social plugins on this page
     version    : 'v2.6' // use graph api version 2.6
   });
 
-  // Now that we've initialized the JavaScript SDK, we call 
+  // Now that we've initialized the JavaScript SDK, we call
   // FB.getLoginStatus().  This function gets the state of the
   // person visiting this page and can return one of three states to
   // the callback you provide.  They can be:

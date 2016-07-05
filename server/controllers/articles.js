@@ -28,17 +28,25 @@
             console.log(err)
             res.redirect('/')
           } else {
-            // console.log("combined, user", user.name)
+          console.log("clicked_user", user.name)
+
             Article.find({current_user:user.name}, function(err, articles){
-              // console.log("combined, articles", articles)
-              var y = articles;
-              Article.find({tagged_user:user.name}, function(err, articles1){
-                if(articles1.length!=0){
-                  y.push(articles1[0]);
-                } else {
-                  res.json(y);
-                }
-              })
+                var y = articles;
+                  // console.log("articles", y.length, y)
+                Article.find({tagged_user:user.name}, function(err, articles1){
+                                    console.log("before puhing", y.length)
+                  if(articles1.length!=0){
+                    for (index in articles1){
+                        y.push(articles1[index]);
+                      console.log("After pushing", y.length, y)
+                        }
+                    res.json(y)
+                  } else {
+                    res.json(y);
+                  }
+                })
+              // }
+
             })
           }
         })
@@ -90,7 +98,12 @@
                           console.log('\nError updating the user with article');
                         } else {
                           console.log('\nSuccess updating the user with article', users);
-                         // module.exports.sendMsg(req,res)
+                            if (req.body.tagged_user){
+
+                            module.exports.sendMsg(req,res)
+                            } else {
+                              console.log("no tagged_user")
+                            }
                         }
 
                   })
@@ -201,7 +214,7 @@
      client.sendMessage({
        to: '+1'+x,   // tageed user phone number
        from: '+16502296283',
-       body: "Hey you have news:" + " " + req.body.description.headline,  //body message of common message that I have added news for you
+       body: "Hey you have news to read:" + " " + req.body.description.headline,  //body message of common message that I have added news for you
      })
  })
    },

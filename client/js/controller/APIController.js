@@ -106,7 +106,7 @@ msg_dashboard_app.controller('APIController', function($scope, $http, $location,
 	  			console.log('looking for article.length', data);
 	  		$scope.users = data;
 	  		$scope.current_user_id = $routeParams.id2
-				console.log("url should look like", data[0]._article[0].description.url)
+				// console.log("url should look like", data[0]._article[0].description.url)
 
 	  	});
 
